@@ -10,4 +10,7 @@ My little boilerplate for apps and SPA websites based on Webpack 2.x
 
 (see webpack.opts.js for additional config options)
 
-TODO: Karma/Jasmine + tests
+TODO: 
+- Karma/Jasmine + tests
+- Fix access to Bootstrap variables
+
