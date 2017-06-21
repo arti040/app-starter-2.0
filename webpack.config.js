@@ -10,7 +10,7 @@ function WebPackConfig(ENV) {
 	config.output 		= webpackTools.setOutput(ENV, __dirname, './dist');
 	config.devServer 	= webpackTools.setDevServer(__dirname, './app');
 	config.module 		= {	rules: webpackTools.setRules(ENV) }
-	config.plugins 		= webpackTools.setPlugins(ENV);
+	config.plugins 		= webpackTools.setPlugins(ENV, './app/');
 	config.resolve		= {
 							alias: {
 								atomic:           path.resolve(__dirname, 'app/atomic'),

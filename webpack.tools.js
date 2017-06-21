@@ -3,6 +3,7 @@ const webpack            = require('webpack');
 const opts    	         = require('./webpack.opts');
 const HtmlWebpackPlugin  = require('html-webpack-plugin');
 const ExtractTextPlugin  = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin  = require('copy-webpack-plugin');
 const UglifyJSPlugin     = require('uglifyjs-webpack-plugin');
 
 
@@ -88,7 +89,8 @@ exports.setDevServer = function (dir,filepath) {
       cached: false,
       colors: true,
       chunk: false
-    }
+    },
+    compress: false
   };
   return devServer;
 };
@@ -103,7 +105,7 @@ exports.setRules = function(ENV) {
     ]; 
 }
 
-exports.setPlugins = function(ENV) {
+exports.setPlugins = function(ENV, dirpath) {
     let plugins = [];
 
     plugins.push(
@@ -146,7 +148,10 @@ exports.setPlugins = function(ENV) {
                     template: 'app/index.html',
                     //css: '/style.css',
                     minify: minifyHTML
-                })
+                }),
+                new CopyWebpackPlugin([
+                    { from: dirpath + '/' + opts.settings.assetsDir, to: opts.settings.assetsDir }
+                ])
             )
             if(opts.settings.prod.minJS) { plugins.push(new UglifyJSPlugin()); }
             

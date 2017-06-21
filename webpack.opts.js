@@ -12,6 +12,7 @@ module.exports = {
         prod: {
             minHTML: true,
             minJS: true
-        }
+        },
+        assetsDir: 'assets'
     }
 }
