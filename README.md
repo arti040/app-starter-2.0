@@ -1,4 +1,4 @@
-# App Starter-2.0
+# App Starter 2.0
 My little boilerplate for apps and SPA websites based on Webpack 2.x
 
 
